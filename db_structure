@@ -1,0 +1,19 @@
+1. Users
+
+- Integer   : id
+- String    : username
+- String    : first_name
+- String    : last_name
+- Enum      : gender [M,F]
+- Integer   : age
+- String    : phone
+- String    : city
+- String    : password
+
+
+2. Transactions
+
+- Integer   : id
+- Integer   : user_iddef checkBalance(uid):
+- Enum      : type [WITHDRAW,DEPOSIT]
+- Double    : amount
