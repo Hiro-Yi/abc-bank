@@ -15,5 +15,15 @@
 
 - Integer   : id
 - Integer   : user_iddef checkBalance(uid):
+-           : bank statement
+-           : profile
 - Enum      : type [WITHDRAW,DEPOSIT]
 - Double    : amount
+
+3. profile
+    -> username 
+    -> dob
+    -> phone number
+    -> age
+    -> gender
+    -> city	

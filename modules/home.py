@@ -1,7 +1,7 @@
-from bullet import Password
-import util as util
-from database import db, connection
-import dashboard as dashboard
+from getpass import getpass
+import modules.util as util
+from modules.database import db, connection
+import modules.dashboard as dashboard
 
 
 def displayMenu():
@@ -50,8 +50,7 @@ def login():
     username = input("> ")
 
     print("Enter Your Password:")
-    password = Password(prompt="> ", hidden="*")
-    password = password.launch()
+    password = getpass("> ")
 
     db.execute(
         "select * from users where username = %s and password = SHA1(%s)", (username, password))
@@ -148,16 +147,15 @@ def register():
 
     while True:
         print("\nEnter your password:")
-        password = Password(prompt="> ", hidden="*")
-        password = password.launch()
+        password = getpass("> ")
         
         if len(password) < 8 or len(password) > 13:
             print(
                 "Password must be greater than 8 characters and smaller than 13 characters !!")
 
         else:
-            break
 
+            break
     values = (username, firstName, lastName, gender, age, phone, city, password)
 
     db.execute("INSERT INTO abc_bank.users( username, first_name, last_name, gender, age, phone, city, password ) VALUES ( %s, %s, %s, %s, %s, %s, %s, SHA1(%s) )", values)

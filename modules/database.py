@@ -1,6 +1,6 @@
 import mysql.connector
-import util as util
-from bullet import Password
+import modules.util as util
+from getpass import getpass
 
 
 try:
@@ -8,8 +8,7 @@ try:
     print("===================================================")
     db_user = input(" Enter your Mysql username: ")
     print("===================================================")
-    db_password = Password(prompt=" Enter your Mysql password: ", hidden="*")
-    db_password = db_password.launch()
+    db_password = getpass(" Enter your Mysql password: ")
     print("===================================================")
     input("\nPress Any Key to Continue ...")
     print("===================================================")

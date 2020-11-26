@@ -1,7 +1,7 @@
 from os import name
-import util as util
-import home as home
-from database import db, connection
+import modules.util as util
+import modules.home as home
+from modules.database import db, connection
 
 
 def displayMenu(user):
