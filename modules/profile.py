@@ -13,8 +13,8 @@ def profile():
     answer = input("> ")
     if answer == 1 :
         print("Enter your username")
-        username = input("> ")
-        db.execute("")
+        usernameNew = input("> ")
+        db.execute("UPDATE users SET username = %s where username = %s ",(usernameNew,username))
     elif answer == 5 :
         username = "qw"
         print("Enter Your Password: ")

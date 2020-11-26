@@ -1,4 +1,5 @@
 from os import name
+from modules.profile import profile
 import modules.util as util
 import modules.home as home
 from modules.database import db, connection
@@ -25,7 +26,10 @@ def displayMenu(user):
             "|\u001b[32m 4.Logout                                           \u001b[33;1m|")
         print("+----------------------------------------------------+")
         print(
-            "|\u001b[32m 5.Exit                                             \u001b[33;1m|")
+            "|\u001b[32m 5.Profile                                         \u001b[33;1m |")
+        print("+----------------------------------------------------+")
+        print(
+            "|\u001b[32m 6.Exit                                             \u001b[33;1m|")
         print("+----------------------------------------------------+")
         print("\u001b[31;1m\nEnter your choice: \u001b[36m")
 
@@ -43,8 +47,11 @@ def displayMenu(user):
 
             elif choice == 4:
                 break
-
+            
             elif choice == 5:
+                profile()
+                
+            elif choice == 6:
                 util.clear()
                 exit()
 
