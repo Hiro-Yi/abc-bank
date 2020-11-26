@@ -14,7 +14,9 @@ def profile():
     if answer == 1 :
         print("Enter your username")
         usernameNew = input("> ")
+        username = "jack"
         db.execute("UPDATE users SET username = %s where username = %s ",(usernameNew,username))
+        
     elif answer == 5 :
         username = "qw"
         print("Enter Your Password: ")
