@@ -7,9 +7,9 @@ import modules.dashboard as dashboard
 def displayMenu():
     while True:
         util.clear()
-
-        print("|                                                                                                             |")
-        print("+----------------------------------------------------+--------------------------------------------------------+")
+        print("+----------------------------------------------------+")
+        print("|               𝕎𝕖𝕝𝕔𝕠𝕞𝕖 𝕥𝕠 𝔸𝕓𝕔 𝔹𝕒𝕟𝕜                |")
+        print("+----------------------------------------------------+")
         print("| 1.Login                                            |")
         print("+----------------------------------------------------+")
         print("| 2.Create Account                                   |")
@@ -50,14 +50,14 @@ def login():
     username = input("> ")
 
     print("Enter Your Password:")
-    password = getpass("> ")
+    password = input("> ")
 
     db.execute(
         "select * from users where username = %s and password = SHA1(%s)", (username, password))
     result = db.fetchone()
 
     if result != None:
-        dashboard.displayMenu(result)
+        dashboard.displayMenu(result[0])
 
     else:
         print("Incorrect Username/Password !!")
@@ -147,7 +147,7 @@ def register():
 
     while True:
         print("\nEnter your password:")
-        password = getpass("> ")
+        password = input("> ")
         
         if len(password) < 8 or len(password) > 13:
             print(

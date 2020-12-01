@@ -1,17 +1,19 @@
 from os import name
 from modules.profile import profile
 import modules.util as util
-import modules.home as home
 from modules.database import db, connection
 
 
-def displayMenu(user):
+def displayMenu(userId):
     while True:
+        db.execute(
+                "select * from users where id = %s ", (userId,))
+        user = db.fetchone()
         util.clear()
         print(
             "\u001b[33;1m+----------------------------------------------------+")
         print(
-            f"\u001b[34;1m                 Welcome { user[1] }               \u001b[33;1m ")
+            f"|\u001b[34;1m                 Welcome { user[1] }               \u001b[33;1m ")
         print("+----------------------------------------------------+")
         print(
             "|\u001b[32m 1.Check Balance                                   \u001b[33;1m |")
@@ -49,8 +51,8 @@ def displayMenu(user):
                 break
             
             elif choice == 5:
-                profile()
-                
+                profile(user)
+
             elif choice == 6:
                 util.clear()
                 exit()
@@ -101,6 +103,7 @@ def withdraw(uid):
         
         if amount > getBalance(uid):
             print("Insufficiant balance !!")
+            
 
     except:
         print("Enter amount only !!")
