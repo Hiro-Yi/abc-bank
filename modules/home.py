@@ -42,15 +42,15 @@ def displayMenu():
 
 def login():
     util.clear()
-    print("+----------------------------------------------------+")
-    print("|                   Login Account                    |")
+    print("\u001b[33;1m+----------------------------------------------------+")
+    print("|\u001b[32m                   Login Account                    \u001b[33;1m|")
     print("+----------------------------------------------------+")
 
-    print("Enter your username:")
-    username = input("> ")
+    print("\u001b[31;1mEnter your username:")
+    username = input("\u001b[34;1m> ")
 
-    print("Enter Your Password:")
-    password = input("> ")
+    print("\u001b[31;1mEnter Your Password:")
+    password = input("\u001b[34;1m> ")
 
     db.execute(
         "select * from users where username = %s and password = SHA1(%s)", (username, password))
@@ -67,62 +67,62 @@ def login():
 def register():
     util.clear()
 
-    print("+----------------------------------------------------+")
-    print("|                   Create Account                   |")
+    print("\u001b[33;1m+----------------------------------------------------+")
+    print("|\u001b[32m                   Create Account                   \u001b[33;1m|")
     print("+----------------------------------------------------+")
 
-    print("\nEnter your first name:")
-    firstName = input("> ")
+    print("\u001b[32m\nEnter your first name:")
+    firstName = input("\u001b[34;1m> ")
 
-    print("\nEnter your last name:")
-    lastName = input("> ")
+    print("\u001b[32m\nEnter your last name:")
+    lastName = input("\u001b[34;1m> ")
 
     while True:
-        print("\nEnter your Username:")
-        username = input("> ")
+        print("\u001b[32m\nEnter your Username:")
+        username = input("\u001b[34;1m> ")
 
         db.execute("SELECT * FROM users WHERE username = %s", (username,))
         result = db.fetchone()
 
         if result != None:
-            print("Username is already registered !!")
+            print("\u001b[31;1mUsername is already registered !!")
 
         else:
             break
 
     while True:
-        print("\nEnter your gender(M/F):")
-        gender = input("> ")
+        print("\u001b[32m\nEnter your gender(M/F):")
+        gender = input("\u001b[34;1m> ")
 
         gender = gender.upper()
         if gender == "M" or gender == "F":
             break
 
         else:
-            print("Gender can be either M or F !!")
+            print("\u001b[31;1mGender can be either M or F !!")
 
     while True:
-        print("\nEnter your age:")
-        age = input("> ")
+        print("\u001b[32m\nEnter your age:")
+        age = input("\u001b[34;1m> ")
 
         try:
             age = int(age)
 
             if age < 13:
-                print("Age should be atleast 13 Years !!")
+                print("\u001b[31;1mAge should be atleast 13 Years !!")
 
             elif age > 139:
-                print("Age must be less then 140 Years !!")
+                print("\u001b[31;1mAge must be less then 140 Years !!")
 
             else:
                 break
 
         except:
-            print("Age must be number !!")
+            print("\u001b[31;1mAge must be number !!")
 
     while True:
-        print("\nEnter Phone number:")
-        phone = input("> ")
+        print("\u001b[32m\nEnter Phone number:")
+        phone = input("\u001b[34;1m> ")
 
         try:
             if len(phone) == 10:
@@ -131,27 +131,27 @@ def register():
                 result = db.fetchone()
 
                 if result != None:
-                    print("Phone number is already registered !!")
+                    print("\u001b[31;1mPhone number is already registered !!")
 
                 else:
                     break
 
             else:
-                print("Please enter a valid phone number !!")
+                print("\u001b[31;1mPlease enter a valid phone number !!")
 
         except:
-            print("Please enter a valid phone number !!")
+            print("\u001b[31;1mPlease enter a valid phone number !!")
 
-    print("\nEnter Your city:")
+    print("\u001b[32m\nEnter Your city:")
     city = input("> ")
 
     while True:
-        print("\nEnter your password:")
-        password = input("> ")
+        print("\u001b[32m\nEnter your password:")
+        password = input("\u001b[34;1m> ")
         
-        if len(password) < 8 or len(password) > 13:
+        if len(password) < 5:
             print(
-                "Password must be greater than 8 characters and smaller than 13 characters !!")
+                "\u001b[31;1mPassword must be greater than 5 characters !!")
 
         else:
 
@@ -161,4 +161,4 @@ def register():
     db.execute("INSERT INTO abc_bank.users( username, first_name, last_name, gender, age, phone, city, password ) VALUES ( %s, %s, %s, %s, %s, %s, %s, SHA1(%s) )", values)
     connection.commit()
     
-    input("\nPress Any Key to Continue ...")
+    input("\u001b[32m\nPress Any Key to Continue ...")
