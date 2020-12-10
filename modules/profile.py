@@ -128,4 +128,5 @@ def profile(userId):
                 input("\nPress Any Key to Continue ...\u001b[34;1m")
 
         except:
+            print("\u001b[31;1mInvalid choice selected !!")
             input("\nPress Any Key to Continue ...\u001b[34;1m")
