@@ -16,10 +16,10 @@ def displayMenu():
         print("+----------------------------------------------------+")
         print("|\u001b[32m 3.Exit                                             \u001b[33;1m|")
         print("+----------------------------------------------------+")
-        print("\nEnter your choice: ")
+        print("\u001b[31;1m\nEnter your choice: ")
 
         try:
-            choice = int(input("> "))
+            choice = int(input("\u001b[34;1m> "))
 
             if choice == 1:
                 login()
