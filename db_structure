@@ -27,4 +27,5 @@
                 -> gender
                 -> city	
 -           : bank statement
-
+                -> DateTime
+                -> [WITHDRAW,DEPOSIT]
