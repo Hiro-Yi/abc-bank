@@ -1,6 +1,7 @@
 from os import name
 from modules.profile import profile
 import modules.util as util
+import modules.bankStatement as statement
 from modules.database import db, connection
 
 
@@ -33,6 +34,9 @@ def displayMenu(userId):
         print(
             "|\u001b[32m 6.Exit                                             \u001b[33;1m|")
         print("+----------------------------------------------------+")
+        print(
+            "|\u001b[32m 7.Exit                                             \u001b[33;1m|")
+        print("+----------------------------------------------------+")
         print("\u001b[31;1m\nEnter your choice: \u001b[36m")
 
         try:
@@ -48,12 +52,15 @@ def displayMenu(userId):
                 withdraw(user[0])
 
             elif choice == 4:
-                break
+                statement(userId)
             
             elif choice == 5:
                 profile(userId)
 
             elif choice == 6:
+                pass
+
+            elif choice == 7:
                 util.clear()
                 exit()
 
