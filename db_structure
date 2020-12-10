@@ -17,6 +17,7 @@
 - Integer   : user_id
 - Enum      : type [WITHDRAW,DEPOSIT]
 - Double    : amount
+- DateTime  : timestamp
 ----------------------------------------
 -           : profile
                 -> username 

@@ -8,7 +8,7 @@ def displayMenu():
     while True:
         util.clear()
         print("\u001b[33;1m+----------------------------------------------------+")
-        print("|\u001b[34;1m                🇼‌🇪‌🇱‌🇨‌🇴‌🇲‌🇪‌ 🇹‌🇴‌ 🇦‌🇧‌🇨‌ 🇧‌🇦‌🇳‌🇰‌ \u001b[33;1m|")
+        print("|\u001b[34;1m                  Welcome to Abc Bank             ‌ \u001b[33;1m|")
         print("+----------------------------------------------------+")
         print("|\u001b[32m 1.Login                                            \u001b[33;1m|")
         print("+----------------------------------------------------+")
@@ -50,7 +50,7 @@ def login():
     username = input("\u001b[34;1m> ")
 
     print("\u001b[31;1mEnter Your Password:")
-    password = input("\u001b[34;1m> ")
+    password = getpass("\u001b[34;1m> ")
 
     db.execute(
         "select * from users where username = %s and password = SHA1(%s)", (username, password))
@@ -147,7 +147,7 @@ def register():
 
     while True:
         print("\u001b[32m\nEnter your password:")
-        password = input("\u001b[34;1m> ")
+        password = getpass("\u001b[34;1m> ")
         
         if len(password) < 5:
             print(

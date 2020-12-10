@@ -16,7 +16,7 @@ def displayMenu(userId):
             f"\u001b[34;1m                 Welcome { user[1] }               \u001b[33;1m ")
         print("+----------------------------------------------------+")
         print(
-            "|\u001b[32m 1.Check Balance                                    \u001b[33;1m |")
+            "|\u001b[32m 1.Check Balance                                   \u001b[33;1m |")
         print("+----------------------------------------------------+")
         print(
             "|\u001b[32m 2.Deposit                                          \u001b[33;1m|")
@@ -28,7 +28,7 @@ def displayMenu(userId):
             "|\u001b[32m 4.Logout                                           \u001b[33;1m|")
         print("+----------------------------------------------------+")
         print(
-            "|\u001b[32m 5.Profile                                          \u001b[33;1m |")
+            "|\u001b[32m 5.Profile                                         \u001b[33;1m |")
         print("+----------------------------------------------------+")
         print(
             "|\u001b[32m 6.Mini Statement                                   \u001b[33;1m|")
@@ -76,11 +76,16 @@ def miniStatement(uid):
     result = db.fetchall()
 
     balance = 0
+    print("+-----------+---------------+-------------------+")
+    print("| Date      |  Time         |  WITHDRAW,DEPOSIT |")
+    print("+-----------+---------------+-------------------+")
     for i in result:
         if i[2] == "DEPOSIT":
-            print(f"{i[4]} - Rs {i[3]}")
+            print(f"\u001b[34;1m|\u001b[35m {i[4]} \u001b[34;1m      |\u001b[31;1m    - Rs {i[3]} \u001b[34;1m")
+            print("+-----------+---------------+-------------------+")
         else:
-            print(f"{i[4]} + Rs {i[3]}")
+            print(f"\u001b[34;1m|\u001b[35m {i[4]}\u001b[34;1m       |\u001b[32m    + Rs {i[3]} \u001b[34;1m")
+            print("+-----------+---------------+-------------------+")
 
     input("\nPress Any Key to Continue ...")
 
