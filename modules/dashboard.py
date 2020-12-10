@@ -6,14 +6,14 @@ from modules.database import db, connection
 
 def displayMenu(userId):
     while True:
+        util.clear()
         db.execute(
                 "select * from users where id = %s ", (userId,))
         user = db.fetchone()
-        util.clear()
         print(
             "\u001b[33;1m+----------------------------------------------------+")
         print(
-            f"|\u001b[34;1m                 Welcome { user[1] }               \u001b[33;1m ")
+            f"\u001b[34;1m                 Welcome { user[1] }               \u001b[33;1m ")
         print("+----------------------------------------------------+")
         print(
             "|\u001b[32m 1.Check Balance                                   \u001b[33;1m |")
