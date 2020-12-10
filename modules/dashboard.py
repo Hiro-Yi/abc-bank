@@ -51,7 +51,7 @@ def displayMenu(userId):
                 break
             
             elif choice == 5:
-                profile(user)
+                profile(userId)
 
             elif choice == 6:
                 util.clear()
