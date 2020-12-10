@@ -10,5 +10,6 @@ try:
     db = connection.cursor()
 
 except:
+    print("===================================================")
     print(" Invalid Mysql username and password !!")
     print("===================================================")
