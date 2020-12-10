@@ -14,7 +14,7 @@
 2. Transactions
 
 - Integer   : id
-- Integer   : user_iddef checkBalance(uid):
+- Integer   : user_id
 - Enum      : type [WITHDRAW,DEPOSIT]
 - Double    : amount
 ----------------------------------------

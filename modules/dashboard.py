@@ -1,7 +1,6 @@
 from os import name
 from modules.profile import profile
 import modules.util as util
-import modules.bankStatement as statement
 from modules.database import db, connection
 
 
@@ -17,7 +16,7 @@ def displayMenu(userId):
             f"\u001b[34;1m                 Welcome { user[1] }               \u001b[33;1m ")
         print("+----------------------------------------------------+")
         print(
-            "|\u001b[32m 1.Check Balance                                   \u001b[33;1m |")
+            "|\u001b[32m 1.Check Balance                                    \u001b[33;1m |")
         print("+----------------------------------------------------+")
         print(
             "|\u001b[32m 2.Deposit                                          \u001b[33;1m|")
@@ -29,10 +28,10 @@ def displayMenu(userId):
             "|\u001b[32m 4.Logout                                           \u001b[33;1m|")
         print("+----------------------------------------------------+")
         print(
-            "|\u001b[32m 5.Profile                                         \u001b[33;1m |")
+            "|\u001b[32m 5.Profile                                          \u001b[33;1m |")
         print("+----------------------------------------------------+")
         print(
-            "|\u001b[32m 6.Exit                                             \u001b[33;1m|")
+            "|\u001b[32m 6.Mini Statement                                   \u001b[33;1m|")
         print("+----------------------------------------------------+")
         print(
             "|\u001b[32m 7.Exit                                             \u001b[33;1m|")
@@ -58,7 +57,7 @@ def displayMenu(userId):
                 profile(userId)
 
             elif choice == 6:
-                pass
+                miniStatement(userId)
 
             elif choice == 7:
                 util.clear()
@@ -71,6 +70,19 @@ def displayMenu(userId):
         except ValueError:
             print("Invalid choice selected !!")
             input("\nPress Any Key to Continue ...")
+
+def miniStatement(uid):
+    db.execute("SELECT * FROM transactions WHERE user_id = %s", (uid,))
+    result = db.fetchall()
+
+    balance = 0
+    for i in result:
+        if i[2] == "DEPOSIT":
+            print(f"{i[4]} - Rs {i[3]}")
+        else:
+            print(f"{i[4]} + Rs {i[3]}")
+
+    input("\nPress Any Key to Continue ...")
 
 
 def getBalance(uid):
