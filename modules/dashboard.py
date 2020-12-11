@@ -51,7 +51,7 @@ def displayMenu(userId):
                 withdraw(user[0])
 
             elif choice == 4:
-                statement(userId)
+                break
             
             elif choice == 5:
                 profile(userId)
