@@ -115,7 +115,7 @@ def profile(userId):
                         passwordOne = getpass("> ")
                         print("Enter Retype Your Password: ")
                         passwordSec = getpass("> ")
-                        if passwordOne == passwordSec and len(passwordOne) < 5 :
+                        if passwordOne == passwordSec and len(passwordOne) :
                             print("\u001b[32mPassword changed .\u001b[34;1m")
                             db.execute("select * from users where username = %s and password = SHA1(%s)", ({user[1]}, passwordOne))
                             connection.commit()
