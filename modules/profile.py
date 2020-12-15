@@ -119,8 +119,6 @@ def profile(userId):
                             print("\u001b[32mPassword changed .\u001b[34;1m")
                             db.execute("select * from users where username = %s and password = SHA1(%s)", ({user[1]}, passwordOne))
                             connection.commit()
-                
-                            pass
                         else:
                             print("\u001b[31;1mPassword dosen`t match !!")
                             print("Try again !!")
