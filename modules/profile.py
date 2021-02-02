@@ -101,28 +101,16 @@ def profile(userId):
                     input("\nPress Any Key to Continue ...\u001b[34;1m")
 
             elif answer == 6 :
-                print("Enter Your Current Password: ")
-                password = getpass("> ")
+                print("Enter Your Password: ")
+                passwordOne = getpass("> ")
+                print("Enter Retype Your Password: ")
+                passwordSec = getpass("> ")
 
-                db.execute(
-                    "select * from users where username = %s and password = SHA1(%s)", ({user[1]}, password))
-                result = db.fetchone()
-                
-
-                if result != None:
-                    while True:
-                        print("Enter Your Password: ")
-                        passwordOne = getpass("> ")
-                        print("Enter Retype Your Password: ")
-                        passwordSec = getpass("> ")
-                        if passwordOne == passwordSec and len(passwordOne) :
-                            print("\u001b[32mPassword changed .\u001b[34;1m")
-                            db.execute("select * from users where username = %s and password = SHA1(%s)", ({user[1]}, passwordOne))
-                            connection.commit()
-                        else:
-                            print("\u001b[31;1mPassword dosen`t match !!")
-                            print("Try again !!")
-                            input("\nPress Any Key to Continue ...\u001b[34;1m")
+                if passwordOne == passwordSec and len(passwordOne) :
+                    print("\u001b[32mPassword changed .\u001b[34;1m")
+                    db.execute("UPDATE users SET password = SHA1(%s) WHERE username = %s", ( passwordOne, user[1]))
+                    connection.commit()
+                    
                 else:
                     print("\u001b[31;1mPassword dosen`t match !!")
                     print("Try again !!")

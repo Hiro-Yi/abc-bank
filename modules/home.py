@@ -8,7 +8,7 @@ def displayMenu():
     while True:
         util.clear()
         print("\u001b[33;1m+----------------------------------------------------+")
-        print("|\u001b[34;1m                  Welcome to Abc Bank              ‌ \u001b[33;1m|")
+        print("|\u001b[34;1m                  Welcome to Abc Bank              ‌\u001b[33;1m|")
         print("+----------------------------------------------------+")
         print("|\u001b[32m 1.Login                                            \u001b[33;1m|")
         print("+----------------------------------------------------+")
