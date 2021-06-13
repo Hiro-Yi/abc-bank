@@ -2,12 +2,12 @@
 > Session ending project 
 
 # Requirements
-* Python 3.6+
+* Python 3
 * mysql-connector (```pip install mysql-connector```)
 * MySQL.
 
 # Video demo
 <a> https://youtu.be/0BhV4bb6NNg </a>
-<a href="https://youtu.be/0BhV4bb6NNg
+<a href="youtube.com/watch?v=0BhV4bb6NNg&feature=youtu.be
 " target="_blank"><img src="https://www.fossmint.com/wp-content/uploads/2017/03/Hyper-Linux-Terminal-App.png" 
 alt="IMAGE ALT TEXT HERE" width="300" height="180" border="10" /></a>
