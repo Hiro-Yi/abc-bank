@@ -1,5 +1,5 @@
-# abc-bank
-> Session ending project 
+# Abc-bank
+> simple python project
 
 # Requirements
 * Python 3
